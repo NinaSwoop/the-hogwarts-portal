@@ -12,10 +12,15 @@ const privatekey = "s3cr3t";
 app.use(bodyParser.json());
 app.use(cors());
 
-const client = new Client()
+const client = new Client({
+  user: 'oclock',
+  host: 'database',
+  database: 'parcours1',
+  password: 'passw0rd'
+})
 client.connect(function(err) {
   if (err) throw err;
-  console.log("🟢 Connected to database");
+  console.log("ERROR");
 });
 
 

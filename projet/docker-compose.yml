@@ -16,7 +16,7 @@ services:
       - PGDATABASE=parcours1
     depends_on:
       - database
-    command: npm run dev
+    command: npm run setup
 
   database:
     image: postgis/postgis:13-master
@@ -40,10 +40,10 @@ services:
     depends_on:
       - backend
     environment:
-      - VITE_API_URL=http://localhost:3000
+      - VITE_API_URL=http://heleneamouzou-server.eddi.cloud:3000
     ports:
       - "5173:5173"
-    command: npm run dev
+    command: npm run setup
 
   adminer:
     image: adminer

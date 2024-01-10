@@ -3,44 +3,26 @@ import poudlardLogo from "./../../../../public/poudlard.png";
 import style from './LoginForm.module.scss'
 import { useNavigate } from 'react-router-dom';
 
-
-
-// interface LoginFormProps {
-//   onLogin: (token: string) => void;
-// }
-
 const LoginForm: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [token, setToken] = useState<string | null>(null);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
-
-    // const handleWizardRole = async () => {
-    //     try {
-    //       const role = await fetch(import.meta.env.VITE_API_URL+'/wizard-roles');
-    //     } catch (error) {
-    //       console.error('error');
-    //     }
-    // };
-
-    const navigateIfAuthenticated = (authenticated: boolean) => {
-      if (authenticated) {
+  
+    // On redirige l'utilisateur lorsqu'il est authentifié
+    useEffect(() => {
+      if (isAuthenticated) {
         navigate('/wizard-role');
       }
-    };
-  
-    useEffect(() => {
-      navigateIfAuthenticated(isAuthenticated);
-    }, [isAuthenticated]);
+    }, [isAuthenticated, navigate]);
     
-
-
     const handleLogin = async (event: React.FormEvent) => {
         event.preventDefault();
-       
+
         try {
-           
+          // Appel d'API avec l'email et le mot de pass
           const response = await fetch(import.meta.env.VITE_API_URL+'/login', {
             method: 'POST',
             headers: {
@@ -51,42 +33,27 @@ const LoginForm: React.FC = () => {
 
           console.log(response)
 
-          console.log('hello');
+          // On récupère le contenu de la réponse et on set le token
           const data = await response.json();
           console.log(data);
           setToken(data.token);
-          setIsAuthenticated(true);
-          console.log(isAuthenticated)
-         
-          // Si connexion ok
-          if (response.ok) {
-            console.log(response)
-            
-            // setIsAuthenticated(true);
+          console.log(data.token);
+      
+          // Si un token est généré on set isAuthenticated à true
+          if (data.token) {
+            setIsAuthenticated(true);
+            console.log(isAuthenticated)
 
-            
-
-            const tokenN = data.token;
-            
-            console.log(tokenN);
-
-
-        
-            // Récupérer le token pour afficher rôles
-            // const { token } = await response.json();
-
+          // A faire -> récupérer l'id pour afficher rôles
             
           } else {
             console.error('Login failed:', response.statusText);
+            setError("Oups, l'identifiant ou le mot de pass n'est pas bon");
           }
         } catch (error) {
           console.error('Login failed:', error);
         }
 
-        if (isAuthenticated === true)
-        {
-            navigate('/wizard-role');
-        }
       };
 
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -107,6 +74,7 @@ const LoginForm: React.FC = () => {
                 <input type="password" value={password} onChange={handlePasswordChange} placeholder='Mot de passe' />
                 <button onClick={handleLogin}>Soumettre</button>
                 </form>
+                {error && <p>{error}</p>}
             </div>
         </main>
     );

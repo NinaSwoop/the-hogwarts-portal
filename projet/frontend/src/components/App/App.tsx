@@ -7,6 +7,7 @@ import Navbar from './Navbar/Navbar';
 import NotFound from './Routes/NotFound';
 import Staff from './Routes/Staff';
 import Subjects from './Routes/Subjects';
+import LoginForm from './Routes/LoginForm';
 
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Navigate to='/staff'/>} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/subjects" element={<Subjects />} />
+        <Route path="/login" element={<LoginForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

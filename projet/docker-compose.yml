@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+
+  backend:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - PGUSER=oclock
+      - PGPASSWORD=passw0rd
+      - PGHOST=database
+      - PGPORT=5432
+      - PGDATABASE=parcours1
+    depends_on:
+      - database
+    command: npm run dev
+
+  database:
+    image: postgis/postgis:13-master
+    container_name: database
+    volumes:
+      - ./db/database:/var/lib/postgresql/data
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: 'oclock'
+      POSTGRES_PASSWORD: 'passw0rd'
+      POSTGRES_DB: 'parcours1'
+    restart: always
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:3000
+    ports:
+      - "5173:5173"
+    command: npm run dev
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - database
+    tty: true

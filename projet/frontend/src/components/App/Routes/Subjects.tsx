@@ -10,7 +10,7 @@ const Subjects: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/subjects');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/subjects');
         const data = await response.json();
         setData(data);
       } catch (error) {

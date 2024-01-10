@@ -9,7 +9,7 @@ const Staff: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/staff');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/staff');
         const data = await response.json();
         setData(data);
       } catch (error) {

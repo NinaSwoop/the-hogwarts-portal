@@ -7,6 +7,8 @@ import Navbar from './Navbar/Navbar';
 import NotFound from './Routes/NotFound';
 import Staff from './Routes/Staff';
 import Subjects from './Routes/Subjects';
+import Wizards from './Routes/Wizards';
+import SubjectDetails from './Routes/SubjectDetails';
 
 
 const App: React.FC = () => {
@@ -18,6 +20,8 @@ const App: React.FC = () => {
         <Route path="/" element={<Navigate to='/staff'/>} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/subjects" element={<Subjects />} />
+        <Route path="/subjects/:id" element={<SubjectDetails />} />
+        <Route path="/wizards" element={<Wizards />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

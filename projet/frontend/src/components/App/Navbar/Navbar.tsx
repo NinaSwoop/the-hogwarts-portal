@@ -11,7 +11,7 @@ const NavBar = () => {
   useEffect(() => {
     const fetchNavLinks = async () => {
       try {
-        const response = await fetch('http://localhost:3000/nav-links');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/nav-links');
         const data = await response.json();
         setNavLinks(data);
       } catch (error) {

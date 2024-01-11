@@ -38,7 +38,7 @@ const NavBar = () => {
   return (
     <nav>
       <ul>
-        {navLinks && navLinks.map((navLink) => (
+        {navLinks && Array.isArray(navLinks) && navLinks.map((navLink) => (
           <li key={navLink.url} className={navLink.url === location.pathname ? 'active' : ''}>
             <Link to={navLink.url}>{navLink.label}</Link>
           </li>

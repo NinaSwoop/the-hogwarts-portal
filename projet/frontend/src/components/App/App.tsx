@@ -8,7 +8,6 @@ import NotFound from './Routes/NotFound';
 import Staff from './Routes/Staff';
 import Subjects from './Routes/Subjects';
 import LoginForm from './Routes/LoginForm';
-import FormRole from './Routes/FormRole';
 
 
 const App: React.FC = () => {
@@ -21,7 +20,6 @@ const App: React.FC = () => {
         <Route path="/staff" element={<Staff />} />
         <Route path="/subjects" element={<Subjects />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/wizard-role" element={<FormRole />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

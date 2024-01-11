@@ -9,61 +9,83 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-    
 
-    img {
-        width: 189px;
-        height: 189px;
+
+        img {
+            width: 189px;
+            height: 189px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            input {
+                width: 329px;
+                height: 42px;
+                border-radius: 10px;
+                background: $color-light;
+                margin-bottom: 20px;
+                border: none;
+                padding: 14px;
+            }
+
+            .button_login {
+                display: flex;
+                width: 141px;
+                padding: 12px 14px;
+                justify-content: center;
+                gap: 10px;
+                border-radius: 10px;
+                border: none;
+                background: $color-dark-green;
+                margin-top: 10px;
+                margin-bottom: 60px;
+                color: $color-lightest;
+                font-size: 16px;
+            }
+
+        }
+
+        .button_role {
+            display: flex;
+            width: 324px;
+            height: 62px;
+            padding: 12px 14px;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 10px;
+            border: none;
+            background: $color-green;
+            margin-top: 10px;
+            margin-bottom: 60px;
+            color: $color-lightest;
+            font-size: 24px;
+            font-weight: 700;
+
+        }
+
+        .error {
+            font-size: 14px;
+            font-weight: 400;
+            border-radius: 10px;
+            border: 2px solid $color-red;
+            width: 329px;
+            height: 86px;
+            margin-bottom: 60px;
+            padding: 20px 14px;
+
+        }
+
+        p {
+            font-size: 12px;
+        }
     }
-
-    h1 {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    input {
-        width: 329px;
-        height: 42px;
-        border-radius: 10px;
-        background: $color-light;
-        margin-bottom: 20px;
-        border: none;
-        padding: 14px;
-    }
-
-    button {
-        display: flex;
-        width: 141px;
-        padding: 12px 14px;
-        justify-content: center;
-        gap: 10px;
-        border-radius: 10px;
-        border: none;
-        background: $color-dark-green;
-        margin-top: 10px;
-        margin-bottom: 60px;
-        color: $color-lightest;
-        font-size: 16px;
-    }
-
-}
-
-    p {
-        font-size: 14px;
-        font-weight: 400;
-        border-radius: 10px;
-        border: 2px solid $color-red;
-        width: 329px;
-        height: 86px;
-        margin-bottom: 60px;
-        padding: 20px 14px;
-
-    }
-}
 }

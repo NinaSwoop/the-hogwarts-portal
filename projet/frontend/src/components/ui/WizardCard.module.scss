@@ -1,0 +1,5 @@
+@use '../../styles/mixins';
+
+.wizard_card {
+  @include mixins.card;
+}

@@ -14,6 +14,8 @@ import Rooms from './Routes/Rooms';
 import RoomDetails from './Routes/RoomDetails';
 import Classes from './Routes/Classes';
 import ClassDetails from './Routes/ClassDetails';
+import Roles from './Routes/Roles';
+import RoleDetails from './Routes/RoleDetails';
 
 
 const App: React.FC = () => {
@@ -32,6 +34,8 @@ const App: React.FC = () => {
         <Route path="/rooms/:id" element={<RoomDetails />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/classes/:id" element={<ClassDetails />} />
+        <Route path="/roles" element={<Roles />} />
+        <Route path="/roles/:id" element={<RoleDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

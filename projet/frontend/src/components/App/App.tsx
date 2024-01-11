@@ -16,6 +16,8 @@ import Classes from './Routes/Classes';
 import ClassDetails from './Routes/ClassDetails';
 import Roles from './Routes/Roles';
 import RoleDetails from './Routes/RoleDetails';
+import Houses from './Routes/Houses';
+import HouseDetails from './Routes/HouseDetails';
 
 
 const App: React.FC = () => {
@@ -36,6 +38,8 @@ const App: React.FC = () => {
         <Route path="/classes/:id" element={<ClassDetails />} />
         <Route path="/roles" element={<Roles />} />
         <Route path="/roles/:id" element={<RoleDetails />} />
+        <Route path="/houses" element={<Houses />} />
+        <Route path="/houses/:id" element={<HouseDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

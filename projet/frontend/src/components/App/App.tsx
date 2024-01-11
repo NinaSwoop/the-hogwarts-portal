@@ -12,6 +12,8 @@ import SubjectDetails from './Routes/SubjectDetails';
 import LoginForm from './Routes/LoginForm';
 import Rooms from './Routes/Rooms';
 import RoomDetails from './Routes/RoomDetails';
+import Classes from './Routes/Classes';
+import ClassDetails from './Routes/ClassDetails';
 
 
 const App: React.FC = () => {
@@ -28,6 +30,8 @@ const App: React.FC = () => {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/rooms/:id" element={<RoomDetails />} />
+        <Route path="/classes" element={<Classes />} />
+        <Route path="/classes/:id" element={<ClassDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

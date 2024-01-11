@@ -22,8 +22,8 @@ const Staff: React.FC = () => {
 
   return (
     <main className={style.staff_list}>
-      {data && data.map((item) => (
-        <StaffCard key={item.wizard.id} {...item} />
+      {data && data.map((item, index) => (
+        <StaffCard key={index} {...item} />
       ))}
     </main>
   );

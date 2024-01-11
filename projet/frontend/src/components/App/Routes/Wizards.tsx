@@ -8,8 +8,15 @@ const Wizards: React.FC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            const finalToken = localStorage.getItem("Final token");
             try {
-                const response = await fetch(import.meta.env.VITE_API_URL+'/wizards');
+                const response = await fetch(import.meta.env.VITE_API_URL + '/wizards', {
+                    method: 'GET',
+                    headers: {
+                      'Authorization': `Bearer ${finalToken}`,
+                      'Content-Type': 'application/json',
+                    }
+                  });
                 const data = await response.json();
                 setData(data);
             } catch (error) {

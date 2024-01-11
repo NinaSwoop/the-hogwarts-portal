@@ -86,10 +86,10 @@ const LoginForm: React.FC = () => {
     })
     const data = await response.json();
     setRoleId(data.role.id);
-    //console.log(data);
-    console.log(data.role.id);
+
     if (data && data.token) {
       localStorage.setItem('Final token', data.token);
+      localStorage.setItem('IsStaff', data.isStaff);
       setToken(data.token);
       navigate('/');
   }

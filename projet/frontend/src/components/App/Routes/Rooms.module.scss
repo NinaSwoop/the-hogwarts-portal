@@ -1,0 +1,5 @@
+@use '../../../styles/mixins';
+
+.rooms_list {
+  @include mixins.grid-content;
+}

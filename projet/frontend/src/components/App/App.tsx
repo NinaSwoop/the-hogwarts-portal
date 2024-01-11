@@ -10,6 +10,8 @@ import Subjects from './Routes/Subjects';
 import Wizards from './Routes/Wizards';
 import SubjectDetails from './Routes/SubjectDetails';
 import LoginForm from './Routes/LoginForm';
+import Rooms from './Routes/Rooms';
+import RoomDetails from './Routes/RoomDetails';
 
 
 const App: React.FC = () => {
@@ -24,6 +26,8 @@ const App: React.FC = () => {
         <Route path="/subjects/:id" element={<SubjectDetails />} />
         <Route path="/wizards" element={<Wizards />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/rooms/:id" element={<RoomDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

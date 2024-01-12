@@ -1,21 +1,42 @@
 @import '../../../styles/variables';
 
 .form__wizard__modal {
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center; 
-}
 
-.input__wizard__modal {
-      width: 100%;
-      padding: 12px 14px;
-      justify-content: center;
-      gap: 10px;
-      border-radius: 10px;
-      border: none;
-      background: $color-dark-green;
-      color: $color-lightest;
-      font-size: 16px;
-      margin: auto;
-      cursor: pointer; 
+  input {
+    width: 300px;
+    height: 42px;
+    border-radius: 10px;
+    background: $color-light;
+    margin-bottom: 20px;
+    border: none;
+  }
+
+
+  .input__wizard__modal {
+        width: 141px !important;
+        padding: 12px 14px;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 10px;
+        border: none;
+        background: $color-dark-green !important;
+        color: $color-lightest;
+        font-size: 16px;
+        margin: auto;
+        cursor: pointer; 
+  }
+
+  .delete__button {
+    background-color: red !important;
+    cursor: pointer; 
+  }
+
+  .buttons__container {
+    display: flex;
+    gap: 10px;
+  }
+
 }

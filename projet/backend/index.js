@@ -305,6 +305,7 @@ app.post("/wizards", (req, res) => {
     "INSERT INTO wizard (email, password, lastname, firstname, birthdate, image, house_id, class_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *", 
     [wizard.email, wizard.password, wizard.lastname, wizard.firstname, wizard.birthdate, wizard.image, wizard.house_id, wizard.class_id]
   ).then((result) => {
+    client.query("INSERT INTO wizardrole (wizard_id, role_id) VALUES ($1, $2)", [result.rows[0].id, 1]);
     res.status(201).json(result.rows[0]);
   })
   .catch(error => {

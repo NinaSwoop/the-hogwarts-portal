@@ -1,0 +1,11 @@
+@import '../../../styles/variables';
+
+.logout_button {
+    padding: 10px 15px;
+    background-color: $color-red;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: $color-lightest
+  }

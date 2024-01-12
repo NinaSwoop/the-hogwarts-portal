@@ -1,5 +1,7 @@
+import LogoutButton from './LogoutButton.tsx';
 import './Header.scss';
 import { Link } from 'react-router-dom';
+
 
 const Header = () => {
   return (
@@ -10,9 +12,13 @@ const Header = () => {
 
       <h1>Poudlard's portal</h1>
 
-      <Link to="/login">
-        <img src="/locked.png" alt="" />
-      </Link>
+      <div className='buttons_connexion'>
+        <Link to="/login">
+          <img src="/locked.png" alt="" />
+        </Link>
+
+        <LogoutButton />
+      </div>
     </header>
   );
 }

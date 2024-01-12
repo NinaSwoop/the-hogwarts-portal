@@ -89,7 +89,6 @@ const LoginForm: React.FC = () => {
 
     if (data && data.token) {
       localStorage.setItem('Final token', data.token);
-      localStorage.setItem('IsStaff', data.isStaff);
       setToken(data.token);
       navigate('/');
   }
@@ -117,12 +116,11 @@ const LoginForm: React.FC = () => {
             <h1>Bienvenue {firstname}</h1>
             <div>
               <p>CONTINUER EN TANT QUE : </p>
-              {roleData.length > 0 && roleData.map((role) => {
+              {roleData.length > 0 && roleData.map((role, index) => {
                 return (
-                  <button className={style.button_role} onClick={() => handleLoginRole(role.id)}>{role.name}</button>
+                  <button key={index} className={style.button_role} onClick={() => handleLoginRole(role.id)}>{role.name}</button>
                 )
               })}
-              <button className={style.button_role} >Soumettre</button>
             </div>
           </div>
         )}

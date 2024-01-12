@@ -1,0 +1,12 @@
+@import '../../../styles/variables';
+
+.error-500 {
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: 2px solid $color-red;
+    width: 329px;
+    height: 86px;
+    margin-bottom: 60px;
+    padding: 20px 14px;
+}

@@ -1,0 +1,5 @@
+@use '../../styles/mixins';
+
+.room_card {
+  @include mixins.card;
+}

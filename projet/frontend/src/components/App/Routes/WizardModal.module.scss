@@ -3,7 +3,7 @@
 .form__wizard__modal {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 
   input {
     width: 300px;
@@ -16,22 +16,22 @@
 
 
   .input__wizard__modal {
-        width: 141px !important;
-        padding: 12px 14px;
-        justify-content: center;
-        gap: 10px;
-        border-radius: 10px;
-        border: none;
-        background: $color-dark-green !important;
-        color: $color-lightest;
-        font-size: 16px;
-        margin: auto;
-        cursor: pointer; 
+    width: 141px !important;
+    padding: 12px 14px;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: none;
+    background: $color-dark-green !important;
+    color: $color-lightest;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
   }
 
   .delete__button {
     background-color: red !important;
-    cursor: pointer; 
+    cursor: pointer;
   }
 
   .buttons__container {

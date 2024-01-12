@@ -25,6 +25,8 @@ Terminer l'implémentation du `create wizard`.
 
 Changement de l'icon à l'authentification et positionnement du footer.
 
+Ré organiser l'arborescence des dossiers.
+
 ### Points de blocage 
 - la double authentification : blocage dû à la non utilisation du `Context` et à des comportements imprévus et non justifiés de React 
 

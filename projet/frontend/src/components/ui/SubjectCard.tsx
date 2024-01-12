@@ -3,7 +3,7 @@ import { Subject } from "../../@types/subject";
 import style from './SubjectCard.module.scss';
 
 const SubjectCard = ({ id, image, name, description }: Subject) => {
-  
+
   const navigate = useNavigate();
 
   const handleClick = (id: number): void => {
@@ -19,7 +19,7 @@ const SubjectCard = ({ id, image, name, description }: Subject) => {
         <p>{description}</p>
       </article>
     </div>
-    
+
   );
 }
 

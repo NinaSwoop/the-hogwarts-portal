@@ -1,8 +1,8 @@
-import {  StaffMember } from "../../@types/wizard";
+import { StaffMember } from "../../@types/wizard";
 import style from './StaffCard.module.scss';
 
 const StaffCard = ({ wizard, room, subject }: StaffMember) => {
-  
+
   const getRoomLabel = (room: StaffMember['room']) => {
     if (!room) {
       return 'Pas de salle attribuée';
@@ -19,7 +19,7 @@ const StaffCard = ({ wizard, room, subject }: StaffMember) => {
     }
     return value;
   }
-  
+
   return (
     <article className={style.staff_card}>
       <img src={wizard.image} alt="" />

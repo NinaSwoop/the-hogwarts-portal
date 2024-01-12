@@ -7,11 +7,10 @@ import { NavLink } from '../../../@types/navlink';
 const NavBar = () => {
   const [navLinks, setNavLinks] = useState<NavLink[] | null>(null);
   const location = useLocation();
-  // on récupère le token et le isStaff du local storage pour le passer à la requête 
   const finalToken = localStorage.getItem("Final token");
 
   useEffect(() => {
-    
+
     const fetchNavLinks = async () => {
       try {
         if (finalToken) {
@@ -23,9 +22,8 @@ const NavBar = () => {
             }
           });
           const data = await response.json();
-          console.log(data)
-          setNavLinks(data);  
-        } 
+          setNavLinks(data);
+        }
         else {
           const response = await fetch(import.meta.env.VITE_API_URL + '/nav-links', {
             method: 'GET',
@@ -35,9 +33,9 @@ const NavBar = () => {
           });
           const data = await response.json();
           console.log(data)
-          setNavLinks(data);  
+          setNavLinks(data);
         }
-      
+
 
 
       } catch (error) {

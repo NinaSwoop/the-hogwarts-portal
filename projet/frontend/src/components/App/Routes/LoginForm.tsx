@@ -13,15 +13,14 @@ const LoginForm: React.FC = () => {
   const [firstname, setFirstname] = useState<string>('');
   const [idWizard, setIdWizard] = useState<number | null>(null);
   const [roleData, setRoleData] = useState<Role[]>([]);
-  const [roleId, setRoleId] = useState<number| null>(null);
+  const [roleId, setRoleId] = useState<number | null>(null);
   const navigate = useNavigate();
-  
+
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
 
     try {
-      // Appel d'API avec l'email et le mot de pass
       const response = await fetch(import.meta.env.VITE_API_URL + '/login', {
         method: 'POST',
         headers: {
@@ -30,18 +29,14 @@ const LoginForm: React.FC = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      // On récupère le contenu de la réponse et on set le token
       const data = await response.json();
 
       setToken(data.token);
 
-
-      // Si un token est généré on set isAuthenticated à true
       if (data.token) {
         setIsAuthenticated(true);
         setFirstname(data.wizard.firstname);
         setIdWizard(data.wizard.id);
-        //const tokenJson = JSON.stringify({ data.token });
 
         const response = await fetch(import.meta.env.VITE_API_URL + `/wizard-roles`, {
           method: 'GET',
@@ -50,8 +45,9 @@ const LoginForm: React.FC = () => {
             'Content-Type': 'application/json',
           }
         });
-        // réponse -> nom des rôles 
+
         const dataRole = await response.json();
+
         setRoleData(dataRole);
 
       } else {
@@ -79,10 +75,10 @@ const LoginForm: React.FC = () => {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         id: id,
-       }),
-       
+      }),
+
     })
     const data = await response.json();
     setRoleId(data.role.id);
@@ -91,9 +87,9 @@ const LoginForm: React.FC = () => {
       localStorage.setItem('Final token', data.token);
       setToken(data.token);
       navigate('/');
-  }
-    
-    
+    }
+
+
   };
 
   return (

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { House } from "../../@types/house";
 import style from './HouseCard.module.scss';
 
-const HouseCard = ({ id, name, image, building, floor}: House) => {
+const HouseCard = ({ id, name, image, building, floor }: House) => {
 
     const navigate = useNavigate();
 

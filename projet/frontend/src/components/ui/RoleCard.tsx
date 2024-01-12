@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { Role } from "../../@types/role";
 import style from './RoleCard.module.scss';
 
-const RoleCard = ({ id, name, is_staff}: Role) => {
+const RoleCard = ({ id, name, is_staff }: Role) => {
 
     const navigate = useNavigate();
 

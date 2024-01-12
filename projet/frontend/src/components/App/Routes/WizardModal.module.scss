@@ -1,0 +1,21 @@
+@import '../../../styles/variables';
+
+.form__wizard__modal {
+    display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.input__wizard__modal {
+      width: 100%;
+      padding: 12px 14px;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 10px;
+      border: none;
+      background: $color-dark-green;
+      color: $color-lightest;
+      font-size: 16px;
+      margin: auto;
+      cursor: pointer; 
+}

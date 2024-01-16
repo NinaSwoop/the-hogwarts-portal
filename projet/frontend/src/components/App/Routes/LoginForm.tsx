@@ -1,8 +1,19 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, createContext, useContext, ReactNode, useEffect  } from 'react';
 import poudlardLogo from "./../../../../public/poudlard.png";
 import style from './LoginForm.module.scss';
 import { Role } from '../../../@types/role';
+import { Wizard } from '../../../@types/wizard';
 import { useNavigate } from 'react-router-dom';
+
+interface AuthContextInterface {
+  isAuthenticated: boolean;
+  token: string | null;
+  handleLogin: (event: React.FormEvent) => Promise<boolean>;
+  handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handlePasswordChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleLogout: () => void;
+  wizard: Wizard | null;
+}
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -88,8 +99,20 @@ const LoginForm: React.FC = () => {
       setToken(data.token);
       navigate('/');
     }
+  };
 
+  const handleLogout = () => {
 
+    try {
+      localStorage.removeItem('Final token');
+      navigate(`/login`);
+      return true;
+    }
+    catch (error) {
+      console.error('Erreur lors de la déconnexion:', error);
+    }
+
+    return false;
   };
 
   return (
